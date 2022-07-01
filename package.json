@@ -1,0 +1,21 @@
+{
+  "name": "gofiber-demo",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "go run cmd/main.go",
+    "dev": "ENV=development concurrently 'go run cmd/main.go' 'yarn vite'",
+    "build": "vite build",
+    "vite:dev": "vite",
+    "vite:build": "vite build",
+    "vite:preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.3.2",
+    "concurrently": "^7.2.2",
+    "foreman": "^3.0.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.2.0",
+    "vite": "^2.9.12"
+  }
+}

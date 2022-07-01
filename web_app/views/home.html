@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="csrf-token" content="<%= csrfToken %>"> -->
+    <title>Platform Portal</title>
+    {{if eq .ENV.ENV "development" }}
+    {{else }}
+    <link rel="stylesheet" href="/web_app/static/dist/index.css">
+    {{ end }}
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+    </script>
+    {{if eq .ENV.ENV "development" }}
+    <script type="module">
+        import RefreshRuntime from "{{ .ENV.VITE_DEV_SERVER_BASE_URL }}/@react-refresh"
+        RefreshRuntime.injectIntoGlobalHook(window)
+        window.$RefreshReg$ = () => {}
+        window.$RefreshSig$ = () => (type) => type
+        window.__vite_plugin_react_preamble_installed__ = true
+    </script>
+    <script type="module" src="{{ .ENV.VITE_DEV_SERVER_BASE_URL }}/web_app/static/src/index.jsx"></script>
+    {{else}}
+    <script src="/web_app/static/dist/index.js"></script>
+    {{end}}
+</body>
+</html>
