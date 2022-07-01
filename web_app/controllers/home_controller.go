@@ -5,6 +5,7 @@ import (
 	"gofiber-demo/plugins/http_server_plugin"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/session"
 )
 
 type HomeController struct {
@@ -13,7 +14,16 @@ type HomeController struct {
 
 func (h *HomeController) Index(c *fiber.Ctx) error {
 	return h.Views.Render(c, "home", fiber.Map{
-		"AppName": env_plugin.GetEnv("APP_NAME"),
-		"ENV":     env_plugin.ENV,
+		"ENV": env_plugin.ENV,
+	})
+}
+
+func (h *HomeController) Session(c *fiber.Ctx) error {
+	session := c.Locals("session").(*session.Session)
+	// session.Save()
+
+	return c.JSON(fiber.Map{
+		"test":       1,
+		"session_id": session.ID(),
 	})
 }

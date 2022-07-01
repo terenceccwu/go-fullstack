@@ -13,7 +13,7 @@ import (
 
 var ENV map[string]string
 
-func Register() {
+func Register() map[string]string {
 	err := godotenv.Load(".env")
 
 	ENV = LoadEnv()
@@ -21,6 +21,8 @@ func Register() {
 	if err != nil {
 		log.Infof("Error loading .env file")
 	}
+
+	return ENV
 }
 
 func LoadEnv() map[string]string {

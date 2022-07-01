@@ -24,6 +24,7 @@ func Register(server *fiber.App) {
 
 	server.Static("/web_app/static/", fmt.Sprintf("%s/static", CWD))
 	server.Get("/", home.Index)
+	server.Get("/session", http_server_plugin.Session, home.Session)
 }
 
 func RegisterViewEngine() *http_server_plugin.ViewEngine {
