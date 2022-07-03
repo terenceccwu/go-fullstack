@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - {{ .ENV.APP_NAME }}</title>
+    <style>
+        body {
+            background-color: #333333;
+            color: #666;
+            font-family: "Helvetica Neue", sans-serif;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: normal;
+            line-height: 20px;
+            padding-bottom: 10px;
+        }
+
+        .login-wrapper {
+            width: 350px;
+            margin: 200px auto 0;
+            border-radius: 4px;
+            box-shadow: 0px 0px 8px 2px rgb(0 0 0 / 20%);
+
+            background: #F0F0F0;
+            padding: 10px;
+        }
+
+        .login-brand {
+            margin-top: 5px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+        }
+
+        .login-wrapper .action {
+            background: #000;
+            color: #FFF;
+            text-decoration: none;
+
+            border-radius: 4px;
+            display: block;
+            margin-top: 10px;
+            padding: 5px;
+            font-size: 16px;
+            line-height: 1.428571429;
+            font-size: 16px;
+        }
+
+        .login-wrapper .action img {
+            width: 40px;
+            height: 40px;
+            margin: 5px 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-wrapper">
+        <h1 class="login-brand">{{ .ENV.APP_NAME }}</h1>
+        <div class="login">
+            <a class="action google" rel="nofollow" href="/auth/google">
+                <img
+                    src="/auth/static/google.png">
+                Login with Google
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
