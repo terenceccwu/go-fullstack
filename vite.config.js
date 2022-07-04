@@ -4,10 +4,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'web_app/static/dist',
+    outDir: 'modules/web_app/static/dist',
     assetsDir: '.',
     rollupOptions: {
-      input: 'web_app/static/src/index.jsx',
+      input: 'modules/web_app/static/src/index.jsx',
       output: {
         entryFileNames: `[name].js`,
         chunkFileNames: `[name].js`,
